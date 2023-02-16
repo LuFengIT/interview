@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lu.epc_wallet.mapper.UserMapper">
+    <select id="walletBalance" parameterType="int" resultType="Double">
+        select balance from user_wallet where id = #{id};
+    </select>
+    <update id="walletExpenseOrRefund" >
+        update user_wallet set balance = balance + #{money} where id = #{id};
+    </update>
+    <insert id="walletDesc" >
+        insert into wallet_desc (uid,money_change,change_time) values(#{param1},#{param2},now()) ;
+    </insert>
+    <select id="walletInfo" resultType="WalletDesc">
+        select * from wallet_desc;
+    </select>
+
+</mapper>

@@ -1,0 +1,12 @@
+server:
+  port: 8081
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/lufeng?serverTimezone=GMT%2b8&characterEncoding=UTF-8
+    username: root
+    password: 12345678
+mybatis:
+  mapper-locations: com/lu/epc_wallet/mapper/*.xml
+  type-aliases-package: com.lu.epc_wallet.entity
+
